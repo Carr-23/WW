@@ -8,8 +8,8 @@ driver = webdriver.Edge(executable_path='msedgedriver.exe')
 driver.get('https://waterlooworks.uwaterloo.ca/home.htm')
 
 languages = ['Java', 'Python', 'C,', 'C++', r'C#', 'python', 'java', ' C ', ' C.', 'C/']
-titleKeyWords = ['Programmer', 'Developer', 'Software', 'Engineer', 'Machine', 'ML', 'AI', 'Artificial', 'Deep', 'Engineering']
-titleKeyWordsBad = ['Quality', 'Assurance', 'QA', 'Test', 'Analyst', 'Data', 'Cloud', 'Frontend', 'UX', 'UI', 'IT', 'Embedded', 'Technician']
+titleKeyWords = ['Programmer', 'Developer', 'Software', 'Engineer', 'AI', 'Artificial', 'Engineering']
+titleKeyWordsBad = ['Quality', 'Assurance', 'QA', 'Test', 'Analyst', 'Data', 'Cloud', 'Frontend', 'UX', 'UI', 'IT', 'Embedded', 'Technician','Front-end','Front end', 'Front End', 'Solution', 'DevOps', 'Devops', 'Dev ops', 'User', 'Tester']
 locations = ['Waterloo', 'Kitchener', 'Toronto', 'Remote','waterloo', 'kitchener', 'toronto', 'remote', 'North York', 'north york']
 # keyWords4Misc = []
 
@@ -46,7 +46,7 @@ while(True):
 
                     postClick.click()
 
-                    time.sleep(1)
+                    time.sleep(1.5)
 
                     try:
                         driver.switch_to.window(driver.window_handles[1])
@@ -58,7 +58,7 @@ while(True):
 
                     if (('remote' or 'Remote') in driver.page_source) or any(x in location for x in locations): 
                         if (any(x in driver.page_source for x in languages)):
-                            if (driver.page_source.count(' test') > 3):
+                            if (driver.page_source.count('test ') > 3 or driver.page_source.count(' test') > 3):
                                 pass
                                 
                             else:
@@ -66,7 +66,7 @@ while(True):
                                 
                     
                     driver.close()
-                    time.sleep(1)
+                    time.sleep(1.5)
 
                     try:
                         driver.switch_to.window(window_before)
@@ -75,11 +75,6 @@ while(True):
                     
                 time.sleep(1.5)
         
-        driver.find_element_by_xpath('/html/body/main/div[2]/div/div/div/div[2]/div/div/div/div/div[2]/div[4]/div/ul/li[16]/a').click()
+        driver.find_element_by_xpath('/html/body/main/div[2]/div/div/div/div[2]/div/div/div/div/div[2]/div[4]/div/ul/li[6]/a').click()
         time.sleep(5)
         driver.execute_script("window.scrollTo(0, 0)") 
-
-
-
-# press next
-# shortlist
